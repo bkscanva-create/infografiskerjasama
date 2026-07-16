@@ -1,0 +1,215 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.mb-dark{color:var(--color-text-primary)}
+.sec-title{font-size:13px;font-weight:500;color:#b35a00;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem}
+.metric-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem;text-align:center}
+.metric-val{font-size:26px;font-weight:500;color:var(--color-text-primary)}
+.metric-lbl{font-size:12px;color:var(--color-text-secondary);margin-top:4px}
+.tab-btn{padding:6px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;cursor:pointer;font-size:13px;color:var(--color-text-secondary);transition:.15s}
+.tab-btn.active{background:#e05c00;color:#fff;border-color:#e05c00}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:500}
+.badge-orange{background:#FAEEDA;color:#854F0B}
+.badge-blue{background:#E6F1FB;color:#185FA5}
+.badge-teal{background:#E1F5EE;color:#0F6E56}
+.badge-gray{background:#F1EFE8;color:#5F5E5A}
+.badge-coral{background:#FAECE7;color:#993C1D}
+.badge-purple{background:#EEEDFE;color:#534AB7}
+.badge-green{background:#EAF3DE;color:#3B6D11}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:7px 10px;background:var(--color-background-secondary);color:var(--color-text-secondary);font-weight:500;font-size:12px}
+td{padding:7px 10px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-primary)}
+tr:last-child td{border-bottom:none}
+.bar-wrap{background:var(--color-background-secondary);border-radius:4px;height:10px;overflow:hidden}
+.bar-fill{height:10px;border-radius:4px;transition:.3s}
+.header-banner{background:#D85A30;border-radius:var(--border-radius-lg);padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:16px}
+.header-logo{width:50px;height:50px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#D85A30;flex-shrink:0}
+.header-text h1{font-size:17px;font-weight:500;color:#fff;line-height:1.3}
+.header-text p{font-size:12px;color:rgba(255,255,255,.75);margin-top:3px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.section{margin-bottom:1.25rem}
+</style>
+
+<div style="padding:1rem 0">
+
+<div class="header-banner">
+  <div class="header-logo">UMB</div>
+  <div class="header-text">
+    <h1>Infografis Kerja Sama Universitas Mercu Buana</h1>
+    <p>Tahun Akademik 2020/2021 s.d. 2025/2026 · Data Sheet 1, 2, dan 3</p>
+  </div>
+</div>
+
+<div class="section grid-4">
+  <div class="metric-card">
+    <div class="metric-val" style="color:#D85A30">1.473</div>
+    <div class="metric-lbl">Total Dokumen</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-val" style="color:#185FA5">1.327</div>
+    <div class="metric-lbl">Kerja Sama Dalam Negeri</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-val" style="color:#0F6E56">146</div>
+    <div class="metric-lbl">Kerja Sama Luar Negeri</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-val" style="color:#534AB7">612</div>
+    <div class="metric-lbl">Dokumen Aktif</div>
+  </div>
+</div>
+
+<div class="section grid-2">
+  <div class="card">
+    <div class="sec-title">Dokumen KDN per Tahun Akademik</div>
+    <div style="position:relative;height:180px"><canvas id="chartKDN" role="img" aria-label="Grafik dokumen kerja sama dalam negeri per tahun">Dokumen KDN 2020-2026.</canvas></div>
+    <div style="display:flex;gap:16px;margin-top:8px;font-size:11px;color:var(--color-text-secondary)">
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#D85A30;margin-right:4px"></span>PT MoU</span>
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#f4a575;margin-right:4px"></span>PT MoA</span>
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#185FA5;margin-right:4px"></span>Non-PT MoU</span>
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#85B7EB;margin-right:4px"></span>Non-PT MoA</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">Dokumen KLN per Tahun Akademik</div>
+    <div style="position:relative;height:180px"><canvas id="chartKLN" role="img" aria-label="Grafik dokumen kerja sama luar negeri per tahun">Dokumen KLN 2020-2026.</canvas></div>
+    <div style="display:flex;gap:16px;margin-top:8px;font-size:11px;color:var(--color-text-secondary)">
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#D85A30;margin-right:4px"></span>PT MoU</span>
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#f4a575;margin-right:4px"></span>PT MoA</span>
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#185FA5;margin-right:4px"></span>Non-PT MoU</span>
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#85B7EB;margin-right:4px"></span>Non-PT MoA</span>
+    </div>
+  </div>
+</div>
+
+<div class="section grid-2">
+  <div class="card">
+    <div class="sec-title">Implementasi Pendidikan KDN</div>
+    <div style="position:relative;height:160px"><canvas id="chartPendKDN" role="img" aria-label="Implementasi bidang pendidikan KDN per tahun">Implementasi KDN 2020-2026.</canvas></div>
+    <div style="display:flex;gap:16px;margin-top:8px;font-size:11px;color:var(--color-text-secondary)">
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#D85A30;margin-right:4px"></span>Perguruan Tinggi</span>
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#185FA5;margin-right:4px"></span>Non-PT</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">Status Dokumen Keseluruhan</div>
+    <div style="position:relative;height:160px"><canvas id="chartStatus" role="img" aria-label="Distribusi status dokumen aktif dan tidak aktif">Aktif 612, Hampir Kadaluarsa 86, Tidak Aktif 775.</canvas></div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;font-size:11px;color:var(--color-text-secondary)">
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#639922;margin-right:4px"></span>Aktif (612)</span>
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#EF9F27;margin-right:4px"></span>Hampir Kadaluarsa (86)</span>
+      <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#E24B4A;margin-right:4px"></span>Tidak Aktif (775)</span>
+    </div>
+  </div>
+</div>
+
+<div class="card section">
+  <div class="sec-title">Distribusi Jenis Mitra</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center">
+    <div style="position:relative;height:220px"><canvas id="chartJenisMitra" role="img" aria-label="Distribusi jenis mitra dalam donut chart">PT 721, Industri 345, Pemerintah 150, LSM 144, Non-PT 66, Yayasan 35, RS 9, Pusat Kebudayaan 1.</canvas></div>
+    <div id="jenisMitraLegend"></div>
+  </div>
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const tahun = ['2020/21','2021/22','2022/23','2023/24','2024/25','2025/26'];
+
+const kdnData = {
+  ptMoU:[173,178,170,162,148,156],
+  ptMoA:[86,113,149,205,202,183],
+  nonMoU:[106,132,172,169,164,178],
+  nonMoA:[100,108,149,188,265,252]
+};
+const klnData = {
+  ptMoU:[39,34,36,32,45,37],
+  ptMoA:[17,0,24,25,30,29],
+  nonMoU:[3,0,0,5,8,11],
+  nonMoA:[0,0,0,4,1,6]
+};
+const pendKDN = {pt:[44,44,14,80,51,13],non:[10,11,8,28,97,80]};
+
+const gridLines={color:'rgba(128,128,128,.1)'};
+const ticksStyle={color:'#888',font:{size:10}};
+const baseOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.parsed.y}}}};
+
+new Chart(document.getElementById('chartKDN'),{
+  type:'bar',
+  data:{labels:tahun,datasets:[
+    {label:'PT MoU',data:kdnData.ptMoU,backgroundColor:'#D85A30'},
+    {label:'PT MoA',data:kdnData.ptMoA,backgroundColor:'#f4a575'},
+    {label:'Non-PT MoU',data:kdnData.nonMoU,backgroundColor:'#185FA5'},
+    {label:'Non-PT MoA',data:kdnData.nonMoA,backgroundColor:'#85B7EB'}
+  ]},
+  options:{...baseOpts,scales:{x:{stacked:false,grid:gridLines,ticks:{...ticksStyle,maxRotation:0}},y:{stacked:false,grid:gridLines,ticks:ticksStyle}}}
+});
+
+new Chart(document.getElementById('chartKLN'),{
+  type:'bar',
+  data:{labels:tahun,datasets:[
+    {label:'PT MoU',data:klnData.ptMoU,backgroundColor:'#D85A30'},
+    {label:'PT MoA',data:klnData.ptMoA,backgroundColor:'#f4a575'},
+    {label:'Non-PT MoU',data:klnData.nonMoU,backgroundColor:'#185FA5'},
+    {label:'Non-PT MoA',data:klnData.nonMoA,backgroundColor:'#85B7EB'}
+  ]},
+  options:{...baseOpts,scales:{x:{stacked:false,grid:gridLines,ticks:{...ticksStyle,maxRotation:0}},y:{stacked:false,grid:gridLines,ticks:ticksStyle}}}
+});
+
+new Chart(document.getElementById('chartPendKDN'),{
+  type:'line',
+  data:{labels:tahun,datasets:[
+    {label:'Perguruan Tinggi',data:pendKDN.pt,borderColor:'#D85A30',backgroundColor:'rgba(216,90,48,.12)',fill:true,tension:.35,pointRadius:3},
+    {label:'Non-Perguruan Tinggi',data:pendKDN.non,borderColor:'#185FA5',backgroundColor:'rgba(24,95,165,.12)',fill:true,tension:.35,pointRadius:3}
+  ]},
+  options:{...baseOpts,scales:{x:{grid:gridLines,ticks:{...ticksStyle,maxRotation:0}},y:{grid:gridLines,ticks:ticksStyle}}}
+});
+
+new Chart(document.getElementById('chartStatus'),{
+  type:'doughnut',
+  data:{
+    labels:['Aktif','Hampir Kadaluarsa','Tidak Aktif'],
+    datasets:[{data:[612,86,775],backgroundColor:['#639922','#EF9F27','#E24B4A'],borderWidth:0}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},cutout:'65%'}
+});
+
+const jenisMitraData = [
+  {label:'Inst. Pendidikan PT',count:721,color:'#D85A30',badge:'badge-coral'},
+  {label:'Industri/Perusahaan',count:345,color:'#185FA5',badge:'badge-blue'},
+  {label:'Instansi Pemerintah',count:150,color:'#0F6E56',badge:'badge-teal'},
+  {label:'LSM/Organisasi',count:144,color:'#534AB7',badge:'badge-purple'},
+  {label:'Inst. Pend. Non-PT',count:66,color:'#854F0B',badge:'badge-orange'},
+  {label:'Yayasan',count:35,color:'#3B6D11',badge:'badge-green'},
+  {label:'Rumah Sakit',count:9,color:'#888780',badge:'badge-gray'},
+  {label:'Pusat Kebudayaan',count:1,color:'#b35a00',badge:'badge-orange'},
+];
+const total = jenisMitraData.reduce((a,b)=>a+b.count,0);
+
+new Chart(document.getElementById('chartJenisMitra'),{
+  type:'doughnut',
+  data:{
+    labels:jenisMitraData.map(d=>d.label),
+    datasets:[{data:jenisMitraData.map(d=>d.count),backgroundColor:jenisMitraData.map(d=>d.color),borderWidth:0}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},cutout:'55%'}
+});
+
+const legend = document.getElementById('jenisMitraLegend');
+legend.innerHTML = jenisMitraData.map(d=>`
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px">
+    <span style="width:10px;height:10px;border-radius:2px;background:${d.color};flex-shrink:0"></span>
+    <span style="font-size:12px;color:var(--color-text-primary);flex:1">${d.label}</span>
+    <span style="font-size:12px;font-weight:500;color:var(--color-text-secondary)">${d.count.toLocaleString()}</span>
+    <span style="font-size:11px;color:var(--color-text-secondary)">${Math.round(d.count/total*100)}%</span>
+  </div>
+`).join('');
+
+
+</script>
